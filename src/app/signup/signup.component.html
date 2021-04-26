@@ -1,1 +1,90 @@
-<p>signup works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-sm-center vh-100 align-items-sm-center">
+            <div class="row col-12 col-sm-10 main-container shadow-lg m-0 bg-body rounded">
+                <section class="col-sm-4 d-none d-sm-block info-container">
+                    <div>
+                        <h1 class="text-center fw-bold text-white mt-3">
+                            Hello, Friend!
+                        </h1>
+                        <div class="underLine border-white"></div>
+                        <div class="text-center text-white mt-3">
+                            Fill Up Personal Information And Start journey With Us
+                        </div>
+                        <div class="col-12 col-sm-8 d-flex justify-content-center m-auto mt-3">
+                            <button class="signup-btn px-5 py-2 fw-bold" routerLink="/signin">Sign In</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="col-12 col-sm-8">
+                    <!-- name -->
+                    <h1 class="fw-bold float-end">
+                        <span class="text-success h5">Reach</span><span class="h6">Me</span>
+                    </h1>
+                    <h1 class="text-center fw-bold text-success mt-5">
+                        Create New Account
+                    </h1>
+                    <div class="underLine"></div>
+                    <!-- email -->
+                    <form [formGroup]="loginForm">
+                        <section class="col-12 col-sm-8 m-auto">
+                            <div class="example-container">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Enter your email</mat-label>
+                                    <input matInput placeholder="pat@example.com" formControlName="email" required>
+                                    <mat-error>
+                                        Invalid Error
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </section>
+                        <!-- mobile -->
+                        <div class="col-12 col-sm-8 m-auto">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Mobile</mat-label>
+                                <input matInput type="tel" placeholder="Mobile number" formControlName="mobileNumber" [pattern]="mobNumberPattern">
+                            </mat-form-field>
+                        </div>
+                        <!-- password -->
+                        <section class="col-12 col-sm-8 m-auto">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput [type]="passwordHide ? 'password' : 'text'" formControlName="password">
+                                <button type="button" mat-icon-button matSuffix (click)="passwordHide = !passwordHide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide"
+                                    class="border-0">
+                                    <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </section>
+                        <!-- confirm password -->
+                        <section class="col-12 col-sm-8 m-auto">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>confirmPassword</mat-label>
+                                <input matInput [type]="confirmPasswordHide ? 'password' : 'text'"
+                                    formControlName="confirmPassword">
+                                <button type="button" mat-icon-button matSuffix class="border-0"
+                                    (click)="confirmPasswordHide = !confirmPasswordHide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="confirmPasswordHide">
+                                    <mat-icon>{{confirmPasswordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </section>
+                        <section class="col-12 col-sm-8 d-flex justify-content-between m-auto">
+                            <div>
+                                <mat-checkbox class="example-margin">Accept terms and conditions</mat-checkbox>
+                            </div>
+                            <div>
+                                <span>#Stay Safe</span>
+                            </div>
+                        </section>
+                        <!-- button -->
+                        <div class="col-12 col-sm-8 d-flex justify-content-center m-auto mt-3 mb-5">
+                            <button class="signin-btn px-5 py-2 fw-bold">Sign Up</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.signin-btn {
+    background: none;
+    border: none;
+    background-color: #0dca78;
+    color: white;
+    border-radius: 20px;
+}
+
+.signup-btn {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    border-radius: 20px;
+}
+
+.underLine {
+    border-top: 3px solid #0dca78;
+    width: 40px;
+    margin: auto;
+}
+
+.info-container {
+    background-color: #0dc997;
+    background-image: url(./assets/pattern.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
