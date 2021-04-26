@@ -1,0 +1,14 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 763 1080" width="763" height="1080">
+	<title>Rectangle 1</title>
+	<defs>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="381.5" y1="1026" x2="381.5" y2="54">
+			<stop offset="0" stop-color="#0dc977"  />
+			<stop offset="1" stop-color="#0dc99b"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: url(#grd1) } 
+	</style>
+	<path id="Rectangle 1" class="shp0" d="M0 0L763 0L763 1080L0 1080L0 0Z" />
+</svg>

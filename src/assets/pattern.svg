@@ -1,0 +1,14 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 843" width="766" height="843">
+	<title>pattern</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { opacity: 0.039;fill: #010101 } 
+	</style>
+	<g id="pattern">
+		<path id="Ellipse 2" class="shp0" d="M449 729C470.54 729 488 746.46 488 768C488 789.54 470.54 807 449 807C427.46 807 410 789.54 410 768C410 746.46 427.46 729 449 729Z" />
+		<path id="Ellipse 2 copy" class="shp0" d="M630 501C705.11 501 766 561.89 766 637C766 712.11 705.11 773 630 773C554.89 773 494 712.11 494 637C494 561.89 554.89 501 630 501Z" />
+		<path id="Rectangle 7" class="shp0" d="M665.59 193.01L542.95 122.4L613.56 -0.24" />
+		<path id="Rectangle 7 copy" class="shp0" d="M75 235L0.01 191.52L43.18 116.01" />
+		<path id="Rectangle 7 copy 2" class="shp0" d="M135 843L60.01 799.52L103.18 724.01" />
+	</g>
+</svg>
