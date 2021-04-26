@@ -26,7 +26,7 @@
                     </h1>
                     <div class="underLine"></div>
                     <!-- email -->
-                    <form [formGroup]="loginForm">
+                    <form [formGroup]="signupForm" (ngSubmit)="handleSubmit()">
                         <section class="col-12 col-sm-8 m-auto">
                             <div class="example-container">
                                 <mat-form-field appearance="outline" class="w-100">
@@ -42,7 +42,7 @@
                         <div class="col-12 col-sm-8 m-auto">
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Mobile</mat-label>
-                                <input matInput type="tel" placeholder="Mobile number" formControlName="mobileNumber" [pattern]="mobNumberPattern">
+                                <input matInput type="tel" placeholder="Mobile number" formControlName="mobileNumber">
                             </mat-form-field>
                         </div>
                         <!-- password -->

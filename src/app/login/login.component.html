@@ -20,7 +20,7 @@
                         Or use your Email Account
                     </p>
                     <!-- email -->
-                    <form [formGroup]="loginForm">
+                    <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
                         <section class="col-12 col-sm-8 m-auto">
                             <div class="example-container">
                                 <mat-form-field appearance="outline" class="w-100">

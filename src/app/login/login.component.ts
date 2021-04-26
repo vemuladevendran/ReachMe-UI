@@ -35,9 +35,13 @@ export class LoginComponent implements OnInit {
     }, {
       validators: confimrPasswordValidator('password', 'confirmPassword'),
     });
-   }
+  }
 
   ngOnInit(): void {
   }
 
+
+  handleSubmit() {
+
+  }
 }

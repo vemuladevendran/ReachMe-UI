@@ -23,14 +23,13 @@ const confimrPasswordValidator = (c1: string, c2: string): ValidatorFn => {
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  loginForm: FormGroup;
+  signupForm: FormGroup;
   passwordHide = true;
   confirmPasswordHide = true;
-  mobNumberPattern = '/[0-9\+\-\ ]/';
   constructor(
     private fb: FormBuilder
   ) {
-    this.loginForm = this.fb.group({
+    this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]],
@@ -42,6 +41,10 @@ export class SignupComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+  handleSubmit() {
+
   }
 
 }
