@@ -26,14 +26,17 @@
                     </h1>
                     <div class="underLine"></div>
                     <!-- email -->
-                    <form [formGroup]="signupForm" (ngSubmit)="handleSubmit()">
+                    <form [formGroup]="signupForm" (ngSubmit)="createUser()">
                         <section class="col-12 col-sm-8 m-auto">
                             <div class="example-container">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Enter your email</mat-label>
                                     <input matInput placeholder="pat@example.com" formControlName="email" required>
-                                    <mat-error>
+                                    <mat-error *ngIf="emailErrors ===''">
                                         Invalid Error
+                                    </mat-error>
+                                    <mat-error>
+                                        {{emailErrors}}
                                     </mat-error>
                                 </mat-form-field>
                             </div>
@@ -80,7 +83,8 @@
                         </section>
                         <!-- button -->
                         <div class="col-12 col-sm-8 d-flex justify-content-center m-auto mt-3 mb-5">
-                            <button class="signin-btn px-5 py-2 fw-bold">Sign Up</button>
+                            <button class="signin-btn px-5 py-2 fw-bold" [disabled]="this.signupForm.invalid">Sign
+                                Up</button>
                         </div>
                     </form>
                 </section>

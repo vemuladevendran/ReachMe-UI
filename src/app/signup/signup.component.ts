@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { UserService } from '../services/users/user.service';
 const confimrPasswordValidator = (c1: string, c2: string): ValidatorFn => {
   return (passwordValue: AbstractControl): null | ValidationErrors => {
     if (passwordValue.get(c1)?.value !== passwordValue.get(c2)?.value) {
@@ -17,6 +18,7 @@ const confimrPasswordValidator = (c1: string, c2: string): ValidatorFn => {
     return null;
   };
 };
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -26,8 +28,10 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   passwordHide = true;
   confirmPasswordHide = true;
+  emailErrors = '';
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userServe: UserService,
   ) {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -43,8 +47,14 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleSubmit() {
-
+  async createUser(): Promise<any> {
+    try {
+      const result = await this.userServe.createUser(this.signupForm?.value);
+    } catch (error) {
+      console.log(error);
+      this.emailErrors = error?.error?.message;
+      this.signupForm?.get('email')?.setErrors(error);
+    }
   }
 
 }
