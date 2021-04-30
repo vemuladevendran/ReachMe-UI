@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../services/users/user.service';
 const confimrPasswordValidator = (c1: string, c2: string): ValidatorFn => {
   return (passwordValue: AbstractControl): null | ValidationErrors => {
     if (passwordValue.get(c1)?.value !== passwordValue.get(c2)?.value) {
@@ -25,9 +28,11 @@ const confimrPasswordValidator = (c1: string, c2: string): ValidatorFn => {
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   passwordHide = true;
-
+  incorrectDetails = false;
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userServe: UserService,
+    private router: Router,
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -41,7 +46,17 @@ export class LoginComponent implements OnInit {
   }
 
 
-  handleSubmit() {
-
+  async checkUser(): Promise<any> {
+    try {
+      const result = await this.userServe.checkUser(this.loginForm.value);
+      this.incorrectDetails = false;
+      console.log('login successful');
+      this.router.navigate(['/signup']);
+      console.log(result.token);
+    } catch (error) {
+      this.incorrectDetails = true;
+    }
   }
+
+
 }

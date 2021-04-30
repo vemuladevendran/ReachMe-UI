@@ -13,4 +13,8 @@ export class UserService {
   createUser(data: any): Promise<any> {
     return this.http.post('http://localhost:3000/api/v1/users', data).toPromise();
   }
+
+  checkUser(data: any): Promise<any> {
+    return this.http.post('http://localhost:3000/login', data).toPromise();
+  }
 }
