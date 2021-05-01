@@ -12,16 +12,12 @@ export class AuthService {
     private router: Router,
   ) { }
 
-  isLoggedIn(): Promise<boolean> {
+  isLoggedIn(): boolean {
     return this.token.isTokenExist();
   }
 
-  async logout(): Promise<void> {
-    try {
-      await this.token.removeToken();
-      this.router.navigate(['/login']);
-    } catch (error) {
-      console.error(error);
-    }
+  logout(): any {
+    this.router.navigate(['/login']);
+    return this.token.removeToken();
   }
 }

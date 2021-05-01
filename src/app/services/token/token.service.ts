@@ -8,21 +8,17 @@ export class TokenService {
 
   constructor() { }
 
-  saveToken(data: any): any{
+  saveToken(data: any): any {
     localStorage.setItem(this.tokenKey, data);
   }
 
-  getToken(): any {
-    localStorage.getItem(this.tokenKey);
+  getToken(): string {
+    return localStorage.getItem(this.tokenKey) as string;
   }
 
 
-  async isTokenExist(): Promise<boolean> {
-    try {
-      return await this.getToken() ? true : false;
-    } catch (error) {
-      return false;
-    }
+  isTokenExist(): boolean {
+    return !!this.getToken();
   }
 
   removeToken(): any {
