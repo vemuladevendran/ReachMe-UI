@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
+import { TokenService } from '../services/token/token.service';
 import { UserService } from '../services/users/user.service';
 const confimrPasswordValidator = (c1: string, c2: string): ValidatorFn => {
   return (passwordValue: AbstractControl): null | ValidationErrors => {
@@ -33,6 +35,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private userServe: UserService,
     private router: Router,
+    private tokenServe: TokenService,
+    private authServe: AuthService,
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -43,6 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
   }
 
 
@@ -50,9 +55,7 @@ export class LoginComponent implements OnInit {
     try {
       const result = await this.userServe.checkUser(this.loginForm.value);
       this.incorrectDetails = false;
-      console.log('login successful');
-      this.router.navigate(['/signup']);
-      console.log(result.token);
+      this.tokenServe.saveToken(result.token);
     } catch (error) {
       this.incorrectDetails = true;
     }
