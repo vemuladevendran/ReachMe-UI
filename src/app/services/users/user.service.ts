@@ -17,4 +17,8 @@ export class UserService {
   checkUser(data: any): Promise<any> {
     return this.http.post('http://localhost:3000/login', data).toPromise();
   }
+
+  verifyUser(data: any): Promise<any> {
+    return this.http.post('http://localhost:3000/verify', data).toPromise();
+  }
 }

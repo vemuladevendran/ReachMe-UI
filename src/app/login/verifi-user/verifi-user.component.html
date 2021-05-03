@@ -1,9 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h2>Verification Link</h2>
+            <div class="col-12 d-flex">
+                <h2 class="col-9">Verification Link</h2>
+            <button class="col-3" mat-icon-button color="primary" mat-button mat-dialog-close aria-label="Example icon button with a close icon">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
             <p>Click send button to send activation link to mail</p>
-            <button>Send</button>
+            <button mat-button color="primary" (click)="sendOtp()">Send</button>
         </div>
     </div>
 </div>

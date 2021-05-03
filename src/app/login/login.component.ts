@@ -58,20 +58,20 @@ export class LoginComponent implements OnInit {
     } catch (error) {
       this.incorrectDetails = error.error.message;
       if (error.error.message === 'user not verified') {
-        this.openDialog();
+        this.openDialog(this.loginForm?.value);
       }
       console.log(error.error.message);
     }
   }
 
 
-  private openDialog(): void {
+  private openDialog(emailId: any): void {
     const dialogRef = this.dialog.open(VerifiUserComponent, {
       width: '302px',
       height: '180px',
       disableClose: true,
       data: {
-          email: this.loginForm.get('email')?.value,
+          email: emailId,
       }
     });
 

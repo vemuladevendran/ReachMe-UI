@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button'; 
 import { VerifiUserComponent } from './verifi-user/verifi-user.component';
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { VerifiUserComponent } from './verifi-user/verifi-user.component';
     ReactiveFormsModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatButtonModule,
   ]
 })
 export class LoginModule { }
