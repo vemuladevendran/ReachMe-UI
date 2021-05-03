@@ -43,8 +43,7 @@
                                     <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
                             </mat-form-field>
-                            <span class="col-12 col-sm-8 text-danger" *ngIf="incorrectDetails">Email'Id or Password is
-                                Incorrect</span>
+                            <span class="col-12 col-sm-8 text-danger">{{incorrectDetails}}</span>
                         </section>
                         <!-- forget password -->
                         <div class="col-12 col-sm-8 d-flex justify-content-between m-auto">
