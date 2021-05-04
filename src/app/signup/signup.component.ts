@@ -1,24 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { PasswordValidationService } from '../services/password/password-validation.service';
 import { UserService } from '../services/users/user.service';
-const confimrPasswordValidator = (c1: string, c2: string): ValidatorFn => {
-  return (passwordValue: AbstractControl): null | ValidationErrors => {
-    if (passwordValue.get(c1)?.value !== passwordValue.get(c2)?.value) {
-      passwordValue.get(c2)?.setErrors({ passwordMismatch: true });
-      return {
-        passwordMismatch: 'Password mismatcgh',
-      };
-    }
-
-    if (passwordValue.get(c2)?.errors) {
-      const { passwordMismatch, ...errors } = passwordValue.get(c2)?.errors || {};
-      passwordValue.get(c2)?.setErrors(Object.keys(errors).length === 0 ? null : errors);
-    }
-
-    return null;
-  };
-};
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -32,6 +15,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userServe: UserService,
+    private passwordServe: PasswordValidationService,
   ) {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -39,7 +23,7 @@ export class SignupComponent implements OnInit {
       confirmPassword: ['', [Validators.required]],
       mobileNumber: ['', [Validators.required, Validators.pattern('[0-9]+')]],
     }, {
-      validators: confimrPasswordValidator('password', 'confirmPassword'),
+      validators: this.passwordServe.confimrPasswordValidator('password', 'confirmPassword'),
     });
   }
 

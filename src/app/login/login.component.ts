@@ -3,26 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { PasswordValidationService } from '../services/password/password-validation.service';
 import { TokenService } from '../services/token/token.service';
 import { UserService } from '../services/users/user.service';
 import { VerifiUserComponent } from './verifi-user/verifi-user.component';
-const confimrPasswordValidator = (c1: string, c2: string): ValidatorFn => {
-  return (passwordValue: AbstractControl): null | ValidationErrors => {
-    if (passwordValue.get(c1)?.value !== passwordValue.get(c2)?.value) {
-      passwordValue.get(c2)?.setErrors({ passwordMismatch: true });
-      return {
-        passwordMismatch: 'Password mismatcgh',
-      };
-    }
-
-    if (passwordValue.get(c2)?.errors) {
-      const { passwordMismatch, ...errors } = passwordValue.get(c2)?.errors || {};
-      passwordValue.get(c2)?.setErrors(Object.keys(errors).length === 0 ? null : errors);
-    }
-
-    return null;
-  };
-};
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,13 +21,14 @@ export class LoginComponent implements OnInit {
     private userServe: UserService,
     private router: Router,
     private tokenServe: TokenService,
+    private passwordServe: PasswordValidationService,
     public dialog: MatDialog,
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     }, {
-      validators: confimrPasswordValidator('password', 'confirmPassword'),
+      validators: this.passwordServe.confimrPasswordValidator('password', 'confirmPassword'),
     });
   }
 
@@ -71,7 +56,7 @@ export class LoginComponent implements OnInit {
       height: '180px',
       disableClose: true,
       data: {
-          email: emailId,
+        email: emailId,
       }
     });
 
