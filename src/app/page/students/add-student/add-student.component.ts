@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { StudentService } from 'src/app/services/students/student.service';
 
 @Component({
@@ -9,9 +10,11 @@ import { StudentService } from 'src/app/services/students/student.service';
 })
 export class AddStudentComponent implements OnInit {
   addStudentForm: FormGroup;
+  alreadyExist = '';
   constructor(
     private fb: FormBuilder,
     private studentServe: StudentService,
+    private router: Router
   ) {
     this.addStudentForm = this.fb.group({
       firstName: ['', [Validators.required]],
@@ -33,9 +36,17 @@ export class AddStudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleSubmit(): void {
-    console.log(this.addStudentForm.value);
-    this.studentServe.createStudent(this.addStudentForm.value);
+  async handleSubmit(): Promise<void> {
+    try {
+      await this.studentServe.createStudent(this.addStudentForm.value);
+      this.router.navigate(['/students']);
+
+    } catch (error) {
+      this.addStudentForm?.get('rollNumber')?.setErrors(error);
+      this.addStudentForm?.get('examNumber')?.setErrors(error);
+      this.alreadyExist = error.error.message
+      console.log(error, 'fail to add student');
+    }
   }
 
 }

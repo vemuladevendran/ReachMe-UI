@@ -46,12 +46,19 @@
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>ROLL NUMBER</mat-label>
                                     <input matInput formControlName="rollNumber">
+                                    <mat-error>
+                                        {{alreadyExist}}
+                                     </mat-error>
                                 </mat-form-field>
+                               
                             </div>
                             <div class="col-12 col-sm-6">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>EXAM NUMBER</mat-label>
                                     <input matInput formControlName="examNumber">
+                                    <mat-error>
+                                        {{alreadyExist}}
+                                     </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>

@@ -17,8 +17,8 @@ export class StudentsComponent implements OnInit {
     this.getStudents();
   }
 
-  async getStudents(): Promise<void>{
-   this.students = await this.studentServe.getStudent()
+  async getStudents(): Promise<void> {
+    this.students = await this.studentServe.getStudent()
   }
 
   async deleteStudent(id: any): Promise<void> {
@@ -33,7 +33,13 @@ export class StudentsComponent implements OnInit {
     });
 
     if (result.isConfirmed) {
-      await this.studentServe.deleteStudent(id);
+      try {
+        await this.studentServe.deleteStudent(id);
+        this.getStudents();
+      } catch (error) {
+        console.log(error, 'fail to delete');
+
+      }
     }
   }
 
