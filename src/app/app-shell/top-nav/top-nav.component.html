@@ -1,15 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm bg-body rounded">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm bg-body rounded" *ngIf="topnav">
     <div class="container-fluid">
         <a class="navbar-brand">STUDENT</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation" *ngIf="topnav" (click)="openNav()">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            (click)="openNav()">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="students" routerLink="/">Home</a>
+                    <a class="nav-link active" aria-current="students" routerLink="/students">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="students/add-student">ADD STUDENT</a>
@@ -18,6 +19,9 @@
                     <a class="nav-link">STUDENT DETAILS</a>
                 </li>
             </ul>
+            <!-- logout button -->
+            <button type="button" class="btn btn-primary" (click)="logout()"><i
+                    class="bi bi-power h5 me-1"></i>LogOut</button>
         </div>
     </div>
 </nav>
@@ -25,13 +29,12 @@
 <!-- mobile navbar -->
 
 <div class="container-fluid mobile-menu-content" *ngIf="mobileNav" (click)="closeNav()">
-    <div class="row mobile-navbar w-75 bg-light float-end">
+    <div class="row mobile-navbar w-75" style="background-color: #d3e3fa;">
         <div class="col-12 vh-100">
-            <button class="btn btn-outline float-end mt-2 ml-1"> 
-                <i class="bi bi-x-circle-fill h5"
-                    (click)="closeNav()"></i>
+            <button class="btn btn-outline float-end mt-2 ml-1">
+                <i class="bi bi-x-circle-fill h5" (click)="closeNav()"></i>
             </button>
-            <div class="d-flex w-100 mt-1 ml-3">
+            <div class="w-100 mt-1 ml-3">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" routerLink="students" (click)="closeNav()">Home</a>
@@ -40,9 +43,13 @@
                         <a class="nav-link" routerLink="students/add-student" (click)="closeNav()">ADD STUDENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  (click)="closeNav()">STUDENT DETAILS</a>
+                        <a class="nav-link" (click)="closeNav()">STUDENT DETAILS</a>
                     </li>
                 </ul>
+                <!-- logout button -->
+                <button type="button" class="btn btn-primary mt-5" (click)="logout()"><i
+                        class="bi bi-power h5 me-1"></i>LogOut</button>
+
             </div>
         </div>
     </div>

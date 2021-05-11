@@ -13,18 +13,18 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TopNavComponent } from './page/top-nav/top-nav.component';
 import { UpdateStudentComponent } from './page/students/update-student/update-student.component';
+import { AppShellModule } from './app-shell/app-shell.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddStudentComponent,
     UpdateStudentComponent,
-    TopNavComponent,
   ],
   imports: [
     BrowserModule,
+    AppShellModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

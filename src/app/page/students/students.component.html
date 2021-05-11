@@ -26,8 +26,9 @@
                                 <td>{{details.rollNumber}}</td>
                                 <td>{{details.examNumber}}</td>
                                 <td class="d-flex">
-                                    <a class="bi bi-pen-fill me-2 h5" [routerLink]="[details._id, 'update-student']"></a>
-                                    <a class="bi bi-trash-fill ms-2 h5" (click)="deleteStudent(details._id)"></a>
+                                    <a class="bi bi-eye-fill me-3 h5" title="view details" [routerLink]="[details._id, 'view-student']"></a>
+                                    <a class="bi bi-pen-fill me-2 h5" title="update Student" [routerLink]="[details._id, 'update-student']"></a>
+                                    <a class="bi bi-trash-fill ms-2 h5" title="delete student" (click)="deleteStudent(details._id)"></a>
                                 </td>
                             </tr>
                         </tbody>
