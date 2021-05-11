@@ -3,7 +3,8 @@
         <div class="col-12 d-sm-flex justify-content-sm-center vh-100 align-items-sm-center">
             <div class="row col-12 col-sm-10 main-container shadow-lg m-0 bg-body rounded">
                 <div>
-                    <button mat-raised-button color="primary" class="w-25 float-end" routerLink="/students/add-student">ADD STUDENT</button>
+                    <span class="fw-bold">STUDENT LIST</span>
+                    <button mat-raised-button color="primary" class="float-end" routerLink="/students/add-student">ADD STUDENT</button>
                 </div>
                 <div class="col-12 mt-2 table-responsive">
                     <table class="table table-hover">
@@ -25,7 +26,7 @@
                                 <td>{{details.rollNumber}}</td>
                                 <td>{{details.examNumber}}</td>
                                 <td class="d-flex">
-                                    <a class="bi bi-pen-fill me-2 h5" [routerLink]="[details.id, 'edit']"></a>
+                                    <a class="bi bi-pen-fill me-2 h5" [routerLink]="[details._id, 'update-student']"></a>
                                     <a class="bi bi-trash-fill ms-2 h5" (click)="deleteStudent(details._id)"></a>
                                 </td>
                             </tr>

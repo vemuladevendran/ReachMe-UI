@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     try {
       const result = await this.userServe.checkUser(this.loginForm.value);
       this.tokenServe.saveToken(result.token);
+      this.router.navigate(['/students']);
     } catch (error) {
       this.incorrectDetails = error.error.message;
       if (error.error.message === 'user not verified') {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { PasswordValidationService } from '../services/password/password-validation.service';
 import { UserService } from '../services/users/user.service';
 @Component({
@@ -16,6 +18,7 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private userServe: UserService,
     private passwordServe: PasswordValidationService,
+    private router: Router,
   ) {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -34,6 +37,15 @@ export class SignupComponent implements OnInit {
   async createUser(): Promise<any> {
     try {
       const result = await this.userServe.createUser(this.signupForm?.value);
+
+      const dialog = await Swal.fire({
+        icon: 'info',
+        title: 'Activate',
+        text: 'Activation link is sent to your email click the link to activate',
+      });
+      if (dialog.isConfirmed) {
+        this.router.navigate(['/login']);
+      }
     } catch (error) {
       console.log(error);
       this.emailErrors = error?.error?.message;

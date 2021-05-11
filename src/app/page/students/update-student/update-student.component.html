@@ -1,0 +1,133 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-sm-flex justify-content-sm-center vh-100 align-items-sm-center">
+            <div class="row col-12 col-sm-8 main-container shadow-lg m-0 bg-body rounded">
+                <div>
+                    <h2 class="text-center">UPDATE NEW STUDENT</h2>
+                    <form [formGroup]="updateStudentForm" (ngSubmit)="handleSubmit(this.student._id, this.updateStudentForm.value)">
+                        <div class="d-sm-flex">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>FirstName</mat-label>
+                                    <input matInput formControlName="firstName">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>LastName</mat-label>
+                                    <input matInput formControlName="lastName">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <!-- email -->
+                        <div class="d-sm-flex">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Enter your email</mat-label>
+                                    <input matInput placeholder="pat@example.com" formControlName="email" required formControlName="email">
+                                    <mat-error>
+                                        Invalid Error
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>GENDER</mat-label>
+                                    <mat-select formControlName="gender">
+                                        <mat-option value="male">MALE</mat-option>
+                                        <mat-option value="female">FEMALE</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <!-- rollno examno -->
+                        <div class="d-sm-flex">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>ROLL NUMBER</mat-label>
+                                    <input matInput formControlName="rollNumber">
+                                    <!-- <mat-error>
+                                        {{alreadyExist}}
+                                     </mat-error> -->
+                                </mat-form-field>
+                               
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>EXAM NUMBER</mat-label>
+                                    <input matInput formControlName="examNumber">
+                                    <!-- <mat-error>
+                                        {{alreadyExist}}
+                                     </mat-error> -->
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <!-- year -->
+                        <div class="d-sm-flex">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>YEAR</mat-label>
+                                    <mat-select formControlName="year">
+                                        <mat-option value="1">FIRST YEAR</mat-option>
+                                        <mat-option value="2">SECOND YEAR</mat-option>
+                                        <mat-option value="3">THIRD YEAR</mat-option>
+                                        <mat-option value="4">FOURTH YEAR</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>BRANCH</mat-label>
+                                <mat-select formControlName="branch">
+                                    <mat-option value="it">INFORMATION TECHNOLOGY</mat-option>
+                                    <mat-option value="cse">COMPUTER SCIENCE</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <!-- dob -->
+                        <div class="d-sm-flex">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>DOB</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>MOBILE NUMBER</mat-label>
+                                    <input matInput formControlName="mobileNumber">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <!-- father mother name -->
+                        <div class="d-sm-flex">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>FATHER NAME</mat-label>
+                                    <input matInput formControlName="fatherName">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>MOTHER NAME</mat-label>
+                                    <input matInput formControlName="motherName">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <!-- address -->
+                        <div>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>ADDRESS</mat-label>
+                                <textarea matInput formControlName="address"></textarea>
+                              </mat-form-field>
+                        </div>
+                        <div class="d-flex justify-content-center mb-4">
+                        <button mat-raised-button color="primary" class="w-50" [disabled]="updateStudentForm.invalid">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

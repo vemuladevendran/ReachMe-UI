@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/app/services/students/student.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-student',
@@ -39,12 +40,15 @@ export class AddStudentComponent implements OnInit {
   async handleSubmit(): Promise<void> {
     try {
       await this.studentServe.createStudent(this.addStudentForm.value);
-      this.router.navigate(['/students']);
+      const result = await Swal.fire('New Student Added Successfuly');
+      if(result.isConfirmed){
+        this.router.navigate(['/students']);
+      }
 
     } catch (error) {
       this.addStudentForm?.get('rollNumber')?.setErrors(error);
       this.addStudentForm?.get('examNumber')?.setErrors(error);
-      this.alreadyExist = error.error.message
+      this.alreadyExist = error.error.message;
       console.log(error, 'fail to add student');
     }
   }

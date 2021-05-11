@@ -21,4 +21,10 @@ export class StudentService {
   deleteStudent(id: string): Promise<any> {
     return this.http.delete(`http://localhost:3000/api/v1/students/${id}`).toPromise();
   }
+
+
+  updateStudent(id: string, data: any): Promise<any> {
+    return this.http.put(`http://localhost:3000/api/v1/students/${id}`, data).toPromise();
+  }
+
 }

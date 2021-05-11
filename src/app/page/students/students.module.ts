@@ -9,7 +9,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
-    StudentsComponent
+    StudentsComponent,
   ],
   imports: [
     CommonModule,
