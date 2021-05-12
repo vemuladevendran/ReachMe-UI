@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 })
 export class StudentsComponent implements OnInit {
   students: any;
+  emptyImg = false;
+  noTable = true;
   constructor(
     private studentServe: StudentService,
   ) { }
@@ -18,7 +20,12 @@ export class StudentsComponent implements OnInit {
   }
 
   async getStudents(): Promise<void> {
-    this.students = await this.studentServe.getStudent()
+    this.students = await this.studentServe.getStudent();
+    if (this.students.length === 0) {
+      this.emptyImg = true;
+      this.noTable = false;
+    }
+    console.log(this.students);
   }
 
   async deleteStudent(id: any): Promise<void> {
