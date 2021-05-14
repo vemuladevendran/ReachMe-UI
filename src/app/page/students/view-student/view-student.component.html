@@ -12,27 +12,43 @@
                 </div>
                 <hr>
                 <div class="d-md-flex flex-wrap">
-                    <p class="col-12 col-md-4 m-4">FIRSTNAME : <span class="text-success fw-bold">{{student.firstName}}</span>
+                    <p class="col-11 col-md-4 m-4">FIRSTNAME : <span
+                            class="text-success fw-bold h5">{{student.firstName}}</span>
                     </p>
-                    <p class="col-12 col-md-4 m-4">LASTNAME : <span class="text-success fw-bold"> {{student.lastName}} </span>
+                    <p class="col-11 col-md-4 m-4">LASTNAME : <span class="text-success fw-bold h5"> {{student.lastName}}
+                        </span>
                     </p>
-                    <p class="col-12 col-md-4 m-4">EMAIL : <span class="text-success fw-bold">{{student.email}}</span> </p>
-                    <p class="col-12 col-md-4 m-4">GENDER : <span class="text-success fw-bold">{{student.gender}}</span> </p>
-                    <p class="col-12 col-md-4 m-4">ROLLNUMBER : <span class="text-success fw-bold">{{student.rollNumber}}</span>
+                    <p class="col-11 col-md-4 m-4">EMAIL : <span class="text-success fw-bold h5">{{student.email}}</span>
                     </p>
-                    <p class="col-12 col-md-4 m-4">EXAMNUMBER : <span class="text-success fw-bold">{{student.examNumber}}</span>
+                    <p class="col-11 col-md-4 m-4">GENDER : <span class="text-success fw-bold h5">{{student.gender}}</span>
                     </p>
-                    <p class="col-12 col-md-4 m-4">YEAR : <span class="text-success fw-bold"> {{student.year}}</span> </p>
-                    <p class="col-12 col-md-4 m-4">BRANCH : <span class="text-success fw-bold">{{student.branch}}</span> </p>
-                    <p class="col-12 col-md-4 m-4">DATE OF BIRTH : <span class="text-success fw-bold">{{student.dob}}</span>
+                    <p class="col-11 col-md-4 m-4">ROLLNUMBER : <span
+                            class="text-success fw-bold h5">{{student.rollNumber}}</span>
                     </p>
-                    <p class="col-12 col-md-4 m-4">MOBILENUMBER : <span
-                            class="text-success">{{student.mobileNumber}}</span> </p>
-                    <p class="col-12 col-md-4 m-4">FATHERNAME : <span class="text-success fw-bold">{{student.fatherName}}</span>
+                    <p class="col-11 col-md-4 m-4">EXAMNUMBER : <span
+                            class="text-success fw-bold h5">{{student.examNumber}}</span>
                     </p>
-                    <p class="col-12 col-md-4 m-4">MOTHERNAME : <span class="text-success fw-bold">{{student.motherName}}</span>
+                    <p class="col-11 col-md-4 m-4">YEAR : <span class="text-success fw-bold h5"> {{student.year}}</span>
                     </p>
-                    <p class="col-12 col-md-4 m-4">ADDRESS : <span class="text-success fw-bold">{{student.address}}</span> </p>
+                    <p class="col-11 col-md-4 m-4">BRANCH : <span class="text-success fw-bold h5">{{student.branch}}</span>
+                    </p>
+                    <p class="col-11 col-md-4 m-4">DATE OF BIRTH : <span class="text-success fw-bold h5">
+                            {{student.dob | date}}</span>
+                    </p>
+                    <p class="col-11 col-md-4 m-4">MOBILENUMBER : <span
+                            class="text-success fw-bold h5">{{student.mobileNumber}}</span> </p>
+                    <p class="col-11 col-md-4 m-4">FATHERNAME : <span
+                            class="text-success fw-bold h5">{{student.fatherName}}</span>
+                    </p>
+                    <p class="col-11 col-md-4 m-4">MOTHERNAME : <span
+                            class="text-success fw-bold h5">{{student.motherName}}</span>
+                    </p>
+                    <p class="col-11 col-md-4 m-4">ADDRESS : <span
+                            class="text-success fw-bold h5">{{student.address}}</span> </p>
+                    <p class="col-11 col-md-4 m-4 d-flex">
+                        <button type="button" class="btn btn-success mx-2">Share</button>
+                        <button type="button" class="btn btn-danger mx-2">Report</button>
+                    </p>
                 </div>
             </div>
         </div>

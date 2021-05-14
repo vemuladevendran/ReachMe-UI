@@ -40,7 +40,7 @@ export class UpdateStudentComponent implements OnInit {
     this.getStudentDetails();
   }
 
-  async getStudentDetails() {
+  async getStudentDetails(): Promise<void> {
 
     try {
 
@@ -77,7 +77,7 @@ export class UpdateStudentComponent implements OnInit {
       await this.studentServ.updateStudent(id, data);
 
       const result = await Swal.fire('Student Data Updated Successfuly');
-      if(result.isConfirmed){
+      if (result.isConfirmed) {
         this.router.navigate(['/students']);
       }
 
