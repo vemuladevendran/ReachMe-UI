@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12 d-sm-flex justify-content-sm-center vh-100 align-items-sm-center">
-            <div class="row col-12 col-sm-8 main-container shadow-lg m-0 bg-body rounded">
+            <section class="row col-12 col-sm-6 main-container shadow-lg m-0 bg-body rounded">
                 <div>
                     <h2 class="text-center">ADD NEW STUDENT</h2>
                     <form [formGroup]="addStudentForm" (ngSubmit)="handleSubmit()">
-                        <div class="d-sm-flex">
+                        <section class="d-sm-flex">
                             <div class="col-12 col-sm-6">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>FirstName</mat-label>
@@ -18,9 +18,9 @@
                                     <input matInput formControlName="lastName">
                                 </mat-form-field>
                             </div>
-                        </div>
+                        </section>
                         <!-- email -->
-                        <div class="d-sm-flex">
+                        <section class="d-sm-flex">
                             <div class="col-12 col-sm-6">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Enter your email</mat-label>
@@ -39,9 +39,9 @@
                                     </mat-select>
                                 </mat-form-field>
                             </div>
-                        </div>
+                        </section>
                         <!-- rollno examno -->
-                        <div class="d-sm-flex">
+                        <section class="d-sm-flex">
                             <div class="col-12 col-sm-6">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>ROLL NUMBER</mat-label>
@@ -61,9 +61,9 @@
                                      </mat-error>
                                 </mat-form-field>
                             </div>
-                        </div>
+                        </section>
                         <!-- year -->
-                        <div class="d-sm-flex">
+                        <section class="d-sm-flex">
                             <div class="col-12 col-sm-6">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>YEAR</mat-label>
@@ -82,9 +82,9 @@
                                     <mat-option value="cse">COMPUTER SCIENCE</mat-option>
                                 </mat-select>
                             </mat-form-field>
-                        </div>
+                        </section>
                         <!-- dob -->
-                        <div class="d-sm-flex">
+                        <section class="d-sm-flex">
                             <div class="col-12 col-sm-6">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>DOB</mat-label>
@@ -99,9 +99,9 @@
                                     <input matInput formControlName="mobileNumber">
                                 </mat-form-field>
                             </div>
-                        </div>
+                        </section>
                         <!-- father mother name -->
-                        <div class="d-sm-flex">
+                        <section class="d-sm-flex">
                             <div class="col-12 col-sm-6">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>FATHER NAME</mat-label>
@@ -114,20 +114,20 @@
                                     <input matInput formControlName="motherName">
                                 </mat-form-field>
                             </div>
-                        </div>
+                        </section>
                         <!-- address -->
-                        <div>
+                        <section>
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>ADDRESS</mat-label>
                                 <textarea matInput formControlName="address"></textarea>
                               </mat-form-field>
-                        </div>
+                        </section>
                         <div class="d-flex justify-content-center mb-4">
                         <button mat-raised-button color="primary" class="w-50" [disabled]="addStudentForm.invalid">Create</button>
                         </div>
                     </form>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 </div>
