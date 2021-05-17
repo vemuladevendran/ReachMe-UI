@@ -9,7 +9,7 @@ import { StudentService } from 'src/app/services/students/student.service';
 })
 export class ViewStudentComponent implements OnInit {
   student: any;
-  data: any
+  data: any;
   constructor(
     private studentServe: StudentService,
     private route: ActivatedRoute
@@ -19,7 +19,7 @@ export class ViewStudentComponent implements OnInit {
     this.getStudentDetails();
   }
 
-  async getStudentDetails() {
+  async getStudentDetails(): Promise<void>{
 
     try {
 
@@ -27,7 +27,6 @@ export class ViewStudentComponent implements OnInit {
 
       this.student = this.data.find((student: any) =>
         student._id === this.route.snapshot.paramMap.get('id'));
-      console.log(this.student);
 
     } catch (error) {
       console.error(error);

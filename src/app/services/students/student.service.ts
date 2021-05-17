@@ -14,8 +14,8 @@ export class StudentService {
     return this.http.post('http://localhost:3000/api/v1/students', data).toPromise();
   }
 
-  getStudent(): Promise<any> {
-    return this.http.get('http://localhost:3000/api/v1/students').toPromise();
+  getStudent(filterDetails: any = {}): Promise<any> {
+    return this.http.get(`http://localhost:3000/api/v1/students`, { params: filterDetails  }).toPromise();
   }
 
   deleteStudent(id: string): Promise<any> {

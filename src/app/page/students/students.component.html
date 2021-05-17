@@ -9,15 +9,16 @@
                         STUDENT</button>
                 </div>
                   <!-- filters -->
-                  <!-- <div class="col-12 d-none d-md-flex">
+                  <div class="col-12 d-none d-md-flex">
                     <div>
                         <mat-form-field appearance="outline" class="w-100">
                             <mat-label>YEAR</mat-label>
                             <mat-select formControlName="year">
-                                <mat-option value="FirstYear">FIRST YEAR</mat-option>
-                                <mat-option value="SecondYear">SECOND YEAR</mat-option>
-                                <mat-option value="ThirdYear">THIRD YEAR</mat-option>
-                                <mat-option value="FourthYear">FOURTH YEAR</mat-option>
+                                <mat-option value="" (click)="handlefilter('')">All</mat-option>
+                                <mat-option value="FirstYear" (click)="handlefilter('FirstYear')">FIRST YEAR</mat-option>
+                                <mat-option value="SecondYear" (click)="handlefilter('SecondYear')">SECOND YEAR</mat-option>
+                                <mat-option value="ThirdYear" (click)="handlefilter('ThirdYear')">THIRD YEAR</mat-option>
+                                <mat-option value="FourthYear" (click)="handlefilter('FourthYear')">FOURTH YEAR</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
@@ -30,11 +31,11 @@
                             </mat-select>
                         </mat-form-field>
                     </div>
-                </div> -->
-                <div *ngIf="emptyImg" class="d-flex justify-content-center">
+                </div>
+                <div *ngIf="!this.students || this.students?.length <= 0" class="d-flex justify-content-center">
                     <img src="/assets/no_data_found.png" class="d-flex justify-content-center">
                 </div>
-                <div class="col-12 mt-2 table-responsive" *ngIf="noTable">
+                <div class="col-12 mt-2 table-responsive" *ngIf="this.students?.length > 0">
                     <table class="table table-hover">
                         <thead>
                             <tr>

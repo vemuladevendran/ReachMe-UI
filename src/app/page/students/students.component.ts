@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/services/students/student.service';
 import Swal from 'sweetalert2';
@@ -21,11 +22,6 @@ export class StudentsComponent implements OnInit {
 
   async getStudents(): Promise<void> {
     this.students = await this.studentServe.getStudent();
-    if (this.students.length === 0) {
-      this.emptyImg = true;
-      this.noTable = false;
-    }
-    console.log(this.students);
   }
 
   async deleteStudent(id: any): Promise<void> {
@@ -49,5 +45,10 @@ export class StudentsComponent implements OnInit {
       }
     }
   }
+
+  async handlefilter(filterDetails: any): Promise<void> {
+    this.students = await this.studentServe.getStudent({ year: filterDetails });
+  }
+
 
 }
