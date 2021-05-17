@@ -61,8 +61,15 @@ export class StudentsComponent implements OnInit {
       if (this.students?.length > 0) {
         const offset = this.getOffset();
         this.studentsToShow = this.students.slice(offset, offset + this.pageSize);
+        console.log(this.students);
         this.totalLength = this.students?.length;
+        if (this.studentsToShow?.length === 0 && this.totalLength > 0) {
+          this.pageIndex -= 1;
+          this.getStudents();
+        }
+        return;
       }
+      this.studentsToShow = [];
     } catch (error) {
       console.log(error);
     }
