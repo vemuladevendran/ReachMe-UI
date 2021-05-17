@@ -12,6 +12,8 @@ export class StudentsComponent implements OnInit {
   students: any;
   emptyImg = false;
   noTable = true;
+  filters: any = {};
+
   constructor(
     private studentServe: StudentService,
   ) { }
@@ -46,8 +48,14 @@ export class StudentsComponent implements OnInit {
     }
   }
 
-  async handlefilter(filterDetails: any): Promise<void> {
-    this.students = await this.studentServe.getStudent({ year: filterDetails });
+  async handleYearfilter(value: any): Promise<void> {
+    this.filters.year = value;
+    this.students = await this.studentServe.getStudent(this.filters);
+  }
+
+  async handleBranchfilter(value: any): Promise<void> {
+    this.filters.branch = value;
+    this.students = await this.studentServe.getStudent(this.filters);
   }
 
 

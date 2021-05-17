@@ -36,3 +36,58 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+
+
+/* Card like table container */
+
+.card-style-table {
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 1px 1px 8px #888888;
+  }
+  
+  .card-style-table .report-filters-heading {
+    font-size: 22px;
+  }
+  
+  /* Gray table */
+  
+  .table.app-rounded-gray-hd-table {
+    border-collapse: separate;
+    border-spacing: 0 1.1em;
+  }
+  
+  /* Fix for material dropdown inside app-rounded-gray-hd-table*/
+  
+  .table.app-rounded-gray-hd-table mat-form-field {
+    border-collapse: collapse;
+  }
+  
+  .table.app-rounded-gray-hd-table th {
+    background-color: #EFF1F7;
+  }
+  
+  .table.app-rounded-gray-hd-table th:first-child {
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+  }
+  
+  .table.app-rounded-gray-hd-table th:last-child {
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+  }
+  
+  .margin-right-3 {
+    margin-right: 1rem;
+  }
+  
+  .card-style {
+    background-color: white;
+    box-shadow: 1px 1px 8px #888888;
+  }
+  
+  .card-style-table th {
+    border-bottom: none;
+    font-weight: normal;
+  }

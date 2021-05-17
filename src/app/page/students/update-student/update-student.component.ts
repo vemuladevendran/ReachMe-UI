@@ -72,7 +72,7 @@ export class UpdateStudentComponent implements OnInit {
   }
 
 
-  async handleSubmit(id: string, data: any) {
+  async handleSubmit(id: string, data: any): Promise<void> {
     try {
       await this.studentServ.updateStudent(id, data);
 

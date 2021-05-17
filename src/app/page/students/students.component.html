@@ -1,50 +1,57 @@
-<div class="container">
-    <div class="row">
-        <div class="col-12 d-sm-flex justify-content-sm-center">
-            <div class="row col-12 col-sm-10 main-container shadow-lg m-0 bg-body rounded mt-2">
-                <div>
-                    <span class="fw-bold">STUDENT LIST</span>
-                  
-                    <button mat-raised-button color="primary" class="float-end" routerLink="/students/add-student">ADD
-                        STUDENT</button>
-                </div>
-                  <!-- filters -->
-                  <div class="col-12 d-none d-md-flex">
-                    <div>
-                        <mat-form-field appearance="outline" class="w-100">
-                            <mat-label>YEAR</mat-label>
-                            <mat-select formControlName="year">
-                                <mat-option value="" (click)="handlefilter('')">All</mat-option>
-                                <mat-option value="FirstYear" (click)="handlefilter('FirstYear')">FIRST YEAR</mat-option>
-                                <mat-option value="SecondYear" (click)="handlefilter('SecondYear')">SECOND YEAR</mat-option>
-                                <mat-option value="ThirdYear" (click)="handlefilter('ThirdYear')">THIRD YEAR</mat-option>
-                                <mat-option value="FourthYear" (click)="handlefilter('FourthYear')">FOURTH YEAR</mat-option>
-                            </mat-select>
-                        </mat-form-field>
+<section class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10">
+            <div class="card-style-table p-4">
+                <!-- Title Region -->
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <h1>Student List</h1>
                     </div>
-                    <div>
-                        <mat-form-field appearance="outline" class="w-100">
-                            <mat-label>BRANCH</mat-label>
-                            <mat-select formControlName="year">
-                                <mat-option value="it">INFORMATION TECHNOLOGY</mat-option>
-                                <mat-option value="cse">COMPUTER SCIENCE</mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                    <div class="col-12 col-md-8">
+                        <section class="row">
+                            <!-- filters -->
+                            <div class="col-12 col-md-4">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>YEAR</mat-label>
+                                    <mat-select formControlName="year"
+                                        (selectionChange)="handleYearfilter($event.value)">
+                                        <mat-option value="">All</mat-option>
+                                        <mat-option value="FirstYear">FIRST YEAR</mat-option>
+                                        <mat-option value="SecondYear">SECOND YEAR</mat-option>
+                                        <mat-option value="ThirdYear">THIRD YEAR</mat-option>
+                                        <mat-option value="FourthYear">FOURTH YEAR</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>BRANCH</mat-label>
+                                    <mat-select formControlName="year"
+                                        (selectionChange)="handleBranchfilter($event.value)">
+                                        <mat-option value="">ALL</mat-option>
+                                        <mat-option value="it">INFORMATION TECHNOLOGY</mat-option>
+                                        <mat-option value="cse">COMPUTER SCIENCE</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-md-3 mt-0 mt-md-2 text-center mb-4 mb-md-0">
+                                <button mat-raised-button color="primary" class="float-end" routerLink="/students/add-student">ADD
+                                    STUDENT</button>
+                            </div>
+                        </section>
                     </div>
                 </div>
-                <div *ngIf="!this.students || this.students?.length <= 0" class="d-flex justify-content-center">
-                    <img src="/assets/no_data_found.png" class="d-flex justify-content-center">
-                </div>
-                <div class="col-12 mt-2 table-responsive" *ngIf="this.students?.length > 0">
-                    <table class="table table-hover">
+                <!-- table -->
+                <div class="table-responsive">
+                    <table class="table w-100 text-center borderless app-rounded-gray-hd-table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">NAME</th>
-                                <th scope="col">EMAIL</th>
-                                <th scope="col">ROLLNUMBER</th>
-                                <th scope="col">EXAMNUMBER</th>
-                                <th scope="col">EDIT</th>
+                                <th scope="col" class="table-header">#</th>
+                                <th scope="col" class="table-header">NAME</th>
+                                <th scope="col" class="table-header">EMAIL</th>
+                                <th scope="col" class="table-header">ROLLNUMBER</th>
+                                <th scope="col" class="table-header">EXAMNUMBER</th>
+                                <th scope="col" class="table-header">EDIT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,8 +72,14 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <!-- <mat-paginator [length]="totalLength" [pageIndex]="pageIndex" [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions" (page)="handlePageChange($event)">
+                    </mat-paginator> -->
+
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
