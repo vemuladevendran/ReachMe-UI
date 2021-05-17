@@ -9,10 +9,15 @@ import Swal from 'sweetalert2';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-  students: any;
+  students: any[] = [];
   emptyImg = false;
   noTable = true;
   filters: any = {};
+  pageSizeOptions = [1, 10, 25, 100];
+  totalLength: number | undefined;
+  pageSize = 1;
+  pageIndex = 0;
+  studentsToShow: any[] = [];
 
   constructor(
     private studentServe: StudentService,
@@ -22,9 +27,7 @@ export class StudentsComponent implements OnInit {
     this.getStudents();
   }
 
-  async getStudents(): Promise<void> {
-    this.students = await this.studentServe.getStudent();
-  }
+
 
   async deleteStudent(id: any): Promise<void> {
     const result = await Swal.fire({
@@ -48,15 +51,39 @@ export class StudentsComponent implements OnInit {
     }
   }
 
+  getOffset(): number {
+    return this.pageIndex * this.pageSize;
+  }
+
+  async getStudents(): Promise<void> {
+    try {
+      this.students = await this.studentServe.getStudent(this.filters ?? {});
+      if (this.students?.length > 0) {
+        const offset = this.getOffset();
+        this.studentsToShow = this.students.slice(offset, offset + this.pageSize);
+        this.totalLength = this.students?.length;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  handlePageChange(event: any): void {
+    console.log(event);
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.getStudents();
+  }
+
   async handleYearfilter(value: any): Promise<void> {
     this.filters.year = value;
-    this.students = await this.studentServe.getStudent(this.filters);
+    this.getStudents();
   }
 
   async handleBranchfilter(value: any): Promise<void> {
     this.filters.branch = value;
-    this.students = await this.studentServe.getStudent(this.filters);
+    // this.students = await this.studentServe.getStudent(this.filters);
+    this.getStudents();
   }
-
 
 }

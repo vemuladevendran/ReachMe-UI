@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { ViewStudentComponent } from './view-student/view-student.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     StudentsComponent,
@@ -20,6 +22,7 @@ import { ViewStudentComponent } from './view-student/view-student.component';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatPaginatorModule,
   ]
 })
 export class StudentsModule { }
