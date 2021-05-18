@@ -13,9 +13,9 @@ export class StudentsComponent implements OnInit {
   emptyImg = false;
   noTable = true;
   filters: any = {};
-  pageSizeOptions = [1, 10, 25, 100];
+  pageSizeOptions = [5, 10, 25, 100];
   totalLength: number | undefined;
-  pageSize = 1;
+  pageSize = 5;
   pageIndex = 0;
   studentsToShow: any[] = [];
 
