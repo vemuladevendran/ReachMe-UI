@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 export class AddStudentComponent implements OnInit {
   addStudentForm: FormGroup;
   alreadyExist = '';
+  personalDetails = true;
+  educationDetails = false;
   constructor(
     private fb: FormBuilder,
     private studentServe: StudentService,
@@ -22,20 +24,33 @@ export class AddStudentComponent implements OnInit {
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required]],
       gender: ['', [Validators.required]],
-      rollNumber: ['', [Validators.required]],
-      examNumber: ['', [Validators.required]],
-      year: ['', [Validators.required]],
-      branch: ['', [Validators.required]],
       dob: ['', [Validators.required]],
       mobileNumber: ['', [Validators.required]],
       fatherName: ['', [Validators.required]],
       motherName: ['', [Validators.required]],
       address: ['', [Validators.required]],
+      // education details
+      tenthyear: ['', [Validators.required]],
+      plustwoyear: ['', [Validators.required]],
+      tenthMark: ['', [Validators.required]],
+      plustwoMark: ['', [Validators.required]],
+      tenthSchool: [''],
+      plustwoSchool: [''],
+      rollNumber: ['', [Validators.required]],
+      examNumber: ['', [Validators.required]],
+      year: ['', [Validators.required]],
+      branch: ['', [Validators.required]],
     });
   }
 
   ngOnInit(): void {
   }
+
+  changeForm(): void {
+    this.personalDetails = !this.personalDetails;
+    this.educationDetails = !this.educationDetails;
+  }
+
 
   async handleSubmit(): Promise<void> {
     try {
@@ -52,5 +67,6 @@ export class AddStudentComponent implements OnInit {
       console.log(error, 'fail to add student');
     }
   }
+
 
 }

@@ -3,66 +3,165 @@
         <div class="col-12 d-sm-flex justify-content-sm-center vh-100 align-items-sm-center">
             <section class="row col-12 col-sm-6 main-container shadow-lg m-0 bg-body rounded">
                 <div>
-                    <h2 class="text-center">ADD NEW STUDENT</h2>
                     <form [formGroup]="addStudentForm" (ngSubmit)="handleSubmit()">
-                        <section class="d-sm-flex">
-                            <div class="col-12 col-sm-6">
+
+                        <!-- personal Details -->
+                        <div *ngIf="personalDetails">
+                            <h2 class="text-center">PERSONAl DETAILS</h2>
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>FirstName</mat-label>
+                                        <input matInput formControlName="firstName">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>LastName</mat-label>
+                                        <input matInput formControlName="lastName">
+                                    </mat-form-field>
+                                </div>
+                            </section>
+                            <!-- email -->
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Enter your email</mat-label>
+                                        <input matInput placeholder="pat@example.com" formControlName="email" required formControlName="email">
+                                        <mat-error>
+                                            Invalid Error
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>GENDER</mat-label>
+                                        <mat-select formControlName="gender">
+                                            <mat-option value="male">MALE</mat-option>
+                                            <mat-option value="female">FEMALE</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </section>
+                            <!-- dob -->
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>DOB</mat-label>
+                                        <input matInput [matDatepicker]="picker" formControlName="dob">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>MOBILE NUMBER</mat-label>
+                                        <input matInput formControlName="mobileNumber">
+                                    </mat-form-field>
+                                </div>
+                            </section>
+                            <!-- father mother name -->
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>FATHER NAME</mat-label>
+                                        <input matInput formControlName="fatherName">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>MOTHER NAME</mat-label>
+                                        <input matInput formControlName="motherName">
+                                    </mat-form-field>
+                                </div>
+                            </section>
+                            <!-- address -->
+                            <section>
                                 <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>FirstName</mat-label>
-                                    <input matInput formControlName="firstName">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>LastName</mat-label>
-                                    <input matInput formControlName="lastName">
-                                </mat-form-field>
-                            </div>
-                        </section>
-                        <!-- email -->
-                        <section class="d-sm-flex">
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>Enter your email</mat-label>
-                                    <input matInput placeholder="pat@example.com" formControlName="email" required formControlName="email">
-                                    <mat-error>
-                                        Invalid Error
-                                    </mat-error>
-                                </mat-form-field>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>GENDER</mat-label>
-                                    <mat-select formControlName="gender">
-                                        <mat-option value="male">MALE</mat-option>
-                                        <mat-option value="female">FEMALE</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                        </section>
-                        <!-- rollno examno -->
-                        <section class="d-sm-flex">
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>ROLL NUMBER</mat-label>
-                                    <input matInput formControlName="rollNumber">
-                                    <mat-error>
-                                        {{alreadyExist}}
-                                     </mat-error>
-                                </mat-form-field>
-                               
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>EXAM NUMBER</mat-label>
-                                    <input matInput formControlName="examNumber">
-                                    <mat-error>
-                                        {{alreadyExist}}
-                                     </mat-error>
-                                </mat-form-field>
-                            </div>
-                        </section>
-                        <!-- year -->
+                                    <mat-label>ADDRESS</mat-label>
+                                    <textarea matInput formControlName="address"></textarea>
+                                  </mat-form-field>
+                            </section>
+                            <div class="d-flex justify-content-center mb-4">
+                                <button mat-raised-button color="primary" class="w-25 mx-3" type="button" (click)="changeForm()">Next</button>
+                                </div>
+                        </div>
+
+
+                        <!-- Education details -->
+                       
+
+                        <div *ngIf="educationDetails">
+                            <h2 class="text-center">Education DETAILS</h2>
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Year of 10th Standard</mat-label>
+                                        <input matInput formControlName="tenthyear">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Year of 12 Standard</mat-label>
+                                        <input matInput formControlName="plustwoyear">
+                                    </mat-form-field>
+                                </div>
+                            </section>
+                            <!-- percentage -->
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>10th mark percentage</mat-label>
+                                        <input type="number" matInput formControlName="tenthMark">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>12th mark percentage</mat-label>
+                                        <input type="number" matInput formControlName="plustwoMark">
+                                    </mat-form-field>
+                                </div>
+                            </section>
+                            <!-- school name -->
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>10th School Name (optional)</mat-label>
+                                        <input matInput formControlName="tenthSchool">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>12th School Name (optional)</mat-label>
+                                        <input matInput formControlName="plustwoSchool">
+                                    </mat-form-field>
+                                </div>
+                            </section>
+                            <h2>College Details</h2>
+                            <!-- roll number -->
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>ROLL NUMBER</mat-label>
+                                        <input matInput formControlName="rollNumber">
+                                        <mat-error>
+                                            {{alreadyExist}}
+                                         </mat-error>
+                                    </mat-form-field>
+                                   
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>EXAM NUMBER</mat-label>
+                                        <input matInput formControlName="examNumber">
+                                        <mat-error>
+                                            {{alreadyExist}}
+                                         </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </section> 
+                            <!-- year -->
+
                         <section class="d-sm-flex">
                             <div class="col-12 col-sm-6">
                                 <mat-form-field appearance="outline" class="w-100">
@@ -83,47 +182,10 @@
                                 </mat-select>
                             </mat-form-field>
                         </section>
-                        <!-- dob -->
-                        <section class="d-sm-flex">
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>DOB</mat-label>
-                                    <input matInput [matDatepicker]="picker" formControlName="dob">
-                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker></mat-datepicker>
-                                </mat-form-field>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>MOBILE NUMBER</mat-label>
-                                    <input matInput formControlName="mobileNumber">
-                                </mat-form-field>
-                            </div>
-                        </section>
-                        <!-- father mother name -->
-                        <section class="d-sm-flex">
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>FATHER NAME</mat-label>
-                                    <input matInput formControlName="fatherName">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>MOTHER NAME</mat-label>
-                                    <input matInput formControlName="motherName">
-                                </mat-form-field>
-                            </div>
-                        </section>
-                        <!-- address -->
-                        <section>
-                            <mat-form-field appearance="outline" class="w-100">
-                                <mat-label>ADDRESS</mat-label>
-                                <textarea matInput formControlName="address"></textarea>
-                              </mat-form-field>
-                        </section>
-                        <div class="d-flex justify-content-center mb-4">
-                        <button mat-raised-button color="primary" class="w-50" [disabled]="addStudentForm.invalid">Create</button>
+                            <div class="d-flex justify-content-center mb-4">
+                                <button mat-raised-button color="primary" class="w-25 mx-3" type="button" (click)="changeForm()">Previous</button>
+                                <button mat-raised-button color="primary" class="w-25 mx-3" [disabled]="addStudentForm.invalid">Create</button>
+                                </div>
                         </div>
                     </form>
                 </div>

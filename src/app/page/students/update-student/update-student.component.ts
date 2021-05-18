@@ -13,6 +13,8 @@ export class UpdateStudentComponent implements OnInit {
   updateStudentForm: FormGroup;
   data: any;
   student: any;
+  personalDetails = true;
+  educationDetails = false;
   constructor(
     private fb: FormBuilder,
     private studentServ: StudentService,
@@ -24,15 +26,22 @@ export class UpdateStudentComponent implements OnInit {
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required]],
       gender: ['', [Validators.required]],
-      rollNumber: ['', [Validators.required]],
-      examNumber: ['', [Validators.required]],
-      year: ['', [Validators.required]],
-      branch: ['', [Validators.required]],
       dob: ['', [Validators.required]],
       mobileNumber: ['', [Validators.required]],
       fatherName: ['', [Validators.required]],
       motherName: ['', [Validators.required]],
       address: ['', [Validators.required]],
+       // education details
+       tenthyear: ['', [Validators.required]],
+       plustwoyear: ['', [Validators.required]],
+       tenthMark: ['', [Validators.required]],
+       plustwoMark: ['', [Validators.required]],
+       tenthSchool: [''],
+       plustwoSchool: [''],
+       rollNumber: ['', [Validators.required]],
+       examNumber: ['', [Validators.required]],
+       year: ['', [Validators.required]],
+       branch: ['', [Validators.required]],
     });
   }
 
@@ -55,20 +64,32 @@ export class UpdateStudentComponent implements OnInit {
         lastName: this.student.lastName,
         email: this.student.email,
         gender: this.student.gender,
-        rollNumber: this.student.rollNumber,
-        examNumber: this.student.examNumber,
-        year: this.student.year,
-        branch: this.student.branch,
         dob: this.student.dob,
         mobileNumber: this.student.mobileNumber,
         fatherName: this.student.fatherName,
         motherName: this.student.motherName,
         address: this.student.address,
+        // education details
+        tenthyear: this.student.tenthyear,
+        plustwoyear: this.student.plustwoyear,
+        tenthMark: this.student.tenthMark,
+        plustwoMark: this.student.plustwoMark,
+        tenthSchool: this.student.tenthSchool,
+        plustwoSchool: this.student.plustwoSchool,
+        rollNumber: this.student.rollNumber,
+        examNumber: this.student.examNumber,
+        year: this.student.year,
+        branch: this.student.branch,
       });
 
     } catch (error) {
       console.error(error);
     }
+  }
+
+  changeForm(): void {
+    this.personalDetails = !this.personalDetails;
+    this.educationDetails = !this.educationDetails;
   }
 
 

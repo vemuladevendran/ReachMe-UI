@@ -9,11 +9,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { ViewStudentComponent } from './view-student/view-student.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ReportsFormComponent } from './reports-form/reports-form.component';
 
 @NgModule({
   declarations: [
     StudentsComponent,
     ViewStudentComponent,
+    ReportsFormComponent,
   ],
   imports: [
     CommonModule,
