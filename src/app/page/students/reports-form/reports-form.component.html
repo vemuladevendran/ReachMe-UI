@@ -1,11 +1,53 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div>
-                <h1>
+    <div class="row justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 col-md-8 card-style-table p-4">
+                <h1 class="text-center">
                     Reports Details
                 </h1>
-                
+                <div>
+                    <form [formGroup]="reportForm">
+                        <section class="d-sm-flex">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Student Name</mat-label>
+                                    <input matInput formControlName="studentName">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Roll Number</mat-label>
+                                    <input matInput formControlName="rollNumber">
+                                </mat-form-field>
+                            </div>
+                        </section>
+                        <section class="d-sm-flex">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Report Title</mat-label>
+                                    <input matInput formControlName="reportTitle">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Report Date</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="reportDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </section>
+                        <section>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Report Content</mat-label>
+                                <textarea matInput formControlName="reportContent"></textarea>
+                            </mat-form-field>
+                        </section>
+                        <div class="col-12 d-flex justify-content-center mb-4">
+                            <button mat-raised-button color="primary">Preview</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
