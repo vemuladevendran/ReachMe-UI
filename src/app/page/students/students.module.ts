@@ -10,12 +10,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { ViewStudentComponent } from './view-student/view-student.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReportsFormComponent } from './reports-form/reports-form.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AddStudentComponent } from './add-student/add-student.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     StudentsComponent,
+    AddStudentComponent,
     ViewStudentComponent,
     ReportsFormComponent,
+    UpdateStudentComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +32,9 @@ import { ReportsFormComponent } from './reports-form/reports-form.component';
     MatSelectModule,
     MatButtonModule,
     MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ]
 })
 export class StudentsModule { }

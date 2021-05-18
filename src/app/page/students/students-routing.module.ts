@@ -24,7 +24,7 @@ const routes: Routes = [
     component: ViewStudentComponent
   },
   {
-    path: 'report-details',
+    path: ':id/report-details',
     component: ReportsFormComponent
   }
 ];
