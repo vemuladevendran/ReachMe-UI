@@ -39,7 +39,6 @@ export class ReportsFormComponent implements OnInit {
 
       this.student = this.data.find((student: any) =>
         student._id === this.route.snapshot.paramMap.get('id'));
-
       this.reportForm.get('studentName')?.setValue(this.student.firstName);
       this.reportForm.get('rollNumber')?.setValue(this.student.rollNumber);
 

@@ -57,7 +57,7 @@ export class UpdateStudentComponent implements OnInit {
 
       this.student = this.data.find((student: any) =>
         student._id === this.route.snapshot.paramMap.get('id'));
-      console.log(this.student);
+      // console.log(this.student);
 
       this.updateStudentForm.setValue({
         firstName: this.student.firstName,

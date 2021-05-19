@@ -19,15 +19,13 @@ export class ViewStudentComponent implements OnInit {
     this.getStudentDetails();
   }
 
-  async getStudentDetails(): Promise<void>{
+  async getStudentDetails(): Promise<void> {
 
     try {
 
       this.data = await this.studentServe.getStudent();
-
       this.student = this.data.find((student: any) =>
         student._id === this.route.snapshot.paramMap.get('id'));
-
     } catch (error) {
       console.error(error);
     }
