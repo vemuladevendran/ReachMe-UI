@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ReportsService } from 'src/app/services/reports/reports.service';
 import { StudentService } from 'src/app/services/students/student.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class ReportsFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private studentServ: StudentService,
+    private studentServe: StudentService,
+    private reportsServe: ReportsService,
     private router: Router,
     private route: ActivatedRoute,
   ) {
@@ -49,14 +51,20 @@ export class ReportsFormComponent implements OnInit {
     this.formpage = !this.formpage;
   }
 
-  printReport(): void {
-    window.print();
+  async printReport(data: any): Promise<void> {
+    try {
+      this.reportsServe.createReport(data);
+      window.print();
+
+    } catch (error) {
+
+    }
   }
 
   async getStudentDetails(): Promise<void> {
 
     try {
-      this.data = await this.studentServ.getStudent();
+      this.data = await this.studentServe.getStudent();
       this.student = this.data.find((student: any) =>
         student._id === this.route.snapshot.paramMap.get('id'));
       this.reportForm.get('studentName')?.setValue(this.student.firstName);
