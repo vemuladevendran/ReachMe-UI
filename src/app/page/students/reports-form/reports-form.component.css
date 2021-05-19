@@ -1,0 +1,19 @@
+header {
+    background-color: #361a4f8a;
+}
+
+.report-content {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.report-content::first-letter {
+    padding-left: 30%;
+    word-wrap: break-word;
+}
+
+@media print {
+    .preview-btn {
+        display: none;
+    }
+}

@@ -56,10 +56,10 @@
                         <p class="col-11 col-md-11 m-4">12th MARK : <span
                                 class="text-success fw-bold h5">{{student?.plustwoMark}}</span>
                         </p>
-                        <p class="col-11 col-md-11 m-4">10th school name : <span
+                        <p class="col-11 col-md-11 m-4" *ngIf="student?.tenthSchool">10th school name : <span
                                 class="text-success fw-bold h5">{{student?.tenthSchool}}</span>
                         </p>
-                        <p class="col-11 col-md-11 m-4">12th school name : <span
+                        <p class="col-11 col-md-11 m-4" *ngIf="student?.plustwoSchool">12th school name : <span
                                 class="text-success fw-bold h5">{{student?.plustwoSchool}}</span>
                         </p>
                         <p class="col-11 col-md-11 m-4">ROLLNUMBER : <span

@@ -12,6 +12,10 @@ export class ReportsFormComponent implements OnInit {
   reportForm: FormGroup;
   data: any;
   student: any;
+  preview = false;
+  formpage = true;
+  previewData: any = {};
+
   constructor(
     private fb: FormBuilder,
     private studentServ: StudentService,
@@ -21,6 +25,8 @@ export class ReportsFormComponent implements OnInit {
     this.reportForm = this.fb.group({
       studentName: ['', [Validators.required]],
       rollNumber: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      repoterName: ['', [Validators.required]],
       reportTitle: ['', [Validators.required]],
       reportDate: ['', [Validators.required]],
       reportContent: ['', [Validators.required]],
@@ -31,17 +37,31 @@ export class ReportsFormComponent implements OnInit {
     this.getStudentDetails();
   }
 
+  previewPage(): void {
+    if (this.preview) {
+      this.previewData = {};
+      this.preview = !this.preview;
+      this.formpage = !this.formpage;
+      return;
+    }
+    this.previewData = this.reportForm.value;
+    this.preview = !this.preview;
+    this.formpage = !this.formpage;
+  }
+
+  printReport(): void {
+    window.print();
+  }
+
   async getStudentDetails(): Promise<void> {
 
     try {
-
       this.data = await this.studentServ.getStudent();
-
       this.student = this.data.find((student: any) =>
         student._id === this.route.snapshot.paramMap.get('id'));
       this.reportForm.get('studentName')?.setValue(this.student.firstName);
       this.reportForm.get('rollNumber')?.setValue(this.student.rollNumber);
-
+      this.reportForm.get('email')?.setValue(this.student.email);
     } catch (error) {
       console.error(error);
     }
