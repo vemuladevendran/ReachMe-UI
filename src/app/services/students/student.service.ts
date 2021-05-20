@@ -17,7 +17,7 @@ export class StudentService {
   }
 
   getStudent(filterDetails: any = {}): Promise<any> {
-    return this.http.get(`${this.settings.API_BASE_URL}/api/v1/students`, { params: filterDetails  }).toPromise();
+    return this.http.get(`${this.settings.API_BASE_URL}/students`, { params: filterDetails  }).toPromise();
   }
 
   deleteStudent(id: string): Promise<any> {
