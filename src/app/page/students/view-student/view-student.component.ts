@@ -19,6 +19,22 @@ export class ViewStudentComponent implements OnInit {
     this.getStudentDetails();
   }
 
+
+  async shareStudentDetail(): Promise<any> {
+    const shareData = {
+      title: this.data?.title,
+      text: 'Student Details',
+      url: window.location.href,
+    };
+
+    try {
+      await navigator.share(shareData);
+      console.log('Data was shared successfully');
+    } catch (error) {
+      console.error('Share failed:', error.message);
+    }
+  }
+
   async getStudentDetails(): Promise<void> {
 
     try {
