@@ -57,6 +57,7 @@ export class StudentsComponent implements OnInit {
 
   async getStudents(): Promise<void> {
     try {
+      console.log(this.filters);
       this.students = await this.studentServe.getStudent(this.filters ?? {});
       if (this.students?.length > 0) {
         const offset = this.getOffset();

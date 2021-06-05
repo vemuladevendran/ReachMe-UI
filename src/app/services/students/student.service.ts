@@ -26,7 +26,7 @@ export class StudentService {
 
 
   updateStudent(id: string, data: any): Promise<any> {
-    return this.http.put(`${this.settings.API_BASE_URL}/${id}`, data).toPromise();
+    return this.http.put(`${this.settings.API_BASE_URL}/students/${id}`, data).toPromise();
   }
 
 }
