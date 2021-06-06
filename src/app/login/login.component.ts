@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { PasswordValidationService } from '../services/password/password-validation.service';
 import { TokenService } from '../services/token/token.service';
 import { UserService } from '../services/users/user.service';
-import { VerifiUserComponent } from './verifi-user/verifi-user.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -51,19 +51,16 @@ export class LoginComponent implements OnInit {
   }
 
 
-  private openDialog(emailId: any): void {
-    const dialogRef = this.dialog.open(VerifiUserComponent, {
-      width: '302px',
-      height: '180px',
-      disableClose: true,
-      data: {
-        email: emailId,
-      }
+  async openDialog(data: any): Promise<void> {
+    const result = await Swal.fire({
+      title: 'Your email is not verified Click send button to send activation link to mail',
+      showCancelButton: true,
+      confirmButtonText: `send`,
+      icon: 'info'
     });
 
-    dialogRef.afterClosed().subscribe(async () => {
-      console.log('dialog colsed');
-    });
+    if (result.isConfirmed) {
+      this.userServe.verifyUser({email: data.email});
+    }
   }
-
 }

@@ -10,11 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button'; 
-import { VerifiUserComponent } from './verifi-user/verifi-user.component';
 @NgModule({
   declarations: [
     LoginComponent,
-    VerifiUserComponent
   ],
   imports: [
     CommonModule,
