@@ -10,10 +10,13 @@ import { StudentService } from 'src/app/services/students/student.service';
 export class ViewStudentComponent implements OnInit {
   student: any;
   data: any;
+  qrCodeUrl: any;
   constructor(
     private studentServe: StudentService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+  ) {
+    this.qrCodeUrl = window.location.href;
+  }
 
   ngOnInit(): void {
     this.getStudentDetails();
