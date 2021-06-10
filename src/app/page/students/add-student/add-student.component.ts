@@ -56,7 +56,7 @@ export class AddStudentComponent implements OnInit {
     try {
       await this.studentServe.createStudent(this.addStudentForm.value);
       const result = await Swal.fire('New Student Added Successfuly');
-      if(result.isConfirmed){
+      if (result.isConfirmed) {
         this.router.navigate(['/students']);
       }
 
