@@ -30,6 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
     canActivate: [AuthGuard]
   },
+  { path: 'forget-password', loadChildren: () => import('./app-shell/password/forget-password/forget-password.module').then(m => m.ForgetPasswordModule) },
   {
     path: '**',
     redirectTo: '/login',
