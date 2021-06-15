@@ -16,7 +16,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
-
+import {MatStepperModule} from '@angular/material/stepper'; 
 @NgModule({
   declarations: [
     StudentsComponent,
@@ -37,6 +37,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     MatNativeDateModule,
     ReactiveFormsModule,
     QRCodeModule,
+    MatStepperModule,
   ]
 })
 export class StudentsModule { }

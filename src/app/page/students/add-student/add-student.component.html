@@ -27,7 +27,8 @@
                                 <div class="col-12 col-sm-6">
                                     <mat-form-field appearance="outline" class="w-100">
                                         <mat-label>Enter your email</mat-label>
-                                        <input matInput placeholder="pat@example.com" formControlName="email" required formControlName="email">
+                                        <input matInput placeholder="pat@example.com" formControlName="email" required
+                                            formControlName="email">
                                         <mat-error>
                                             Invalid Error
                                         </mat-error>
@@ -80,16 +81,17 @@
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>ADDRESS</mat-label>
                                     <textarea matInput formControlName="address"></textarea>
-                                  </mat-form-field>
+                                </mat-form-field>
                             </section>
                             <div class="d-flex justify-content-center mb-4">
-                                <button mat-raised-button color="primary" class="w-25 mx-3" type="button" (click)="changeForm()">Next</button>
-                                </div>
+                                <button mat-raised-button color="primary" class="w-25 mx-3" type="button"
+                                    (click)="changeForm()">Next</button>
+                            </div>
                         </div>
 
 
                         <!-- Education details -->
-                       
+
 
                         <div *ngIf="educationDetails">
                             <h2 class="text-center">Education DETAILS</h2>
@@ -146,9 +148,9 @@
                                         <input matInput formControlName="rollNumber">
                                         <mat-error>
                                             {{alreadyExist}}
-                                         </mat-error>
+                                        </mat-error>
                                     </mat-form-field>
-                                   
+
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <mat-form-field appearance="outline" class="w-100">
@@ -156,36 +158,40 @@
                                         <input matInput formControlName="examNumber">
                                         <mat-error>
                                             {{alreadyExist}}
-                                         </mat-error>
+                                        </mat-error>
                                     </mat-form-field>
                                 </div>
-                            </section> 
+                            </section>
                             <!-- year -->
 
-                        <section class="d-sm-flex">
-                            <div class="col-12 col-sm-6">
-                                <mat-form-field appearance="outline" class="w-100">
-                                    <mat-label>YEAR</mat-label>
-                                    <mat-select formControlName="year">
-                                        <mat-option value="FirstYear">FIRST YEAR</mat-option>
-                                        <mat-option value="SecondYear">SECOND YEAR</mat-option>
-                                        <mat-option value="ThirdYear">THIRD YEAR</mat-option>
-                                        <mat-option value="FourthYear">FOURTH YEAR</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                            <mat-form-field appearance="outline" class="w-100">
-                                <mat-label>BRANCH</mat-label>
-                                <mat-select formControlName="branch">
-                                    <mat-option value="it">INFORMATION TECHNOLOGY</mat-option>
-                                    <mat-option value="cse">COMPUTER SCIENCE</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </section>
-                            <div class="d-flex justify-content-center mb-4">
-                                <button mat-raised-button color="primary" class="w-25 mx-3" type="button" (click)="changeForm()">Previous</button>
-                                <button mat-raised-button color="primary" class="w-25 mx-3" [disabled]="addStudentForm.invalid">Create</button>
+                            <section class="d-sm-flex">
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>YEAR</mat-label>
+                                        <mat-select formControlName="year">
+                                            <mat-option value="FirstYear">FIRST YEAR</mat-option>
+                                            <mat-option value="SecondYear">SECOND YEAR</mat-option>
+                                            <mat-option value="ThirdYear">THIRD YEAR</mat-option>
+                                            <mat-option value="FourthYear">FOURTH YEAR</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
                                 </div>
+                                <div class="col-12 col-sm-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>BRANCH</mat-label>
+                                        <mat-select formControlName="branch">
+                                            <mat-option value="it">INFORMATION TECHNOLOGY</mat-option>
+                                            <mat-option value="cse">COMPUTER SCIENCE</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </section>
+                            <div class="d-flex justify-content-center mb-4">
+                                <button mat-raised-button color="primary" class="w-25 mx-3" type="button"
+                                    (click)="changeForm()">Previous</button>
+                                <button mat-raised-button color="primary" class="w-25 mx-3"
+                                    [disabled]="addStudentForm.invalid">Create</button>
+                            </div>
                         </div>
                     </form>
                 </div>
